@@ -11,9 +11,16 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>DSharpPlus.Interactivity</PackageId>
-    <Description>An addon that adds interactivity capabilities to commands.</Description>
-    <PackageTags>discord, discord-api, bots, discord-bots, chat, dsharp, dsharpplus, csharp, dotnet, vb-net, fsharp, interactive, pagination, reactions</PackageTags>
+    <PackageId>CessumCorePlus.Interactivity</PackageId>
+    <Description>Cessum Core addon that adds interactivity capabilities to commands, based off of DSharpPlus.</Description>
+    <PackageTags></PackageTags>
+    <PackageProjectUrl>https://github.com/Neuheit/DSharpPlus/tree/cessumCore</PackageProjectUrl>
+    <Version>1.0.0</Version>
+    <Authors>Neuheit</Authors>
+    <Company>Cessum Development Hub</Company>
+    <Product>CessumCorePlus.Interactivity</Product>
+    <RepositoryUrl>https://github.com/Neuheit/DSharpPlus/tree/cessumCore</RepositoryUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
