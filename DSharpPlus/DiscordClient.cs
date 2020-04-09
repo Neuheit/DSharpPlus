@@ -2483,7 +2483,8 @@ namespace DSharpPlus
                     ShardId = this.Configuration.ShardId,
                     ShardCount = this.Configuration.ShardCount
                 },
-                Presence = status
+                Presence = status,
+                GuildSubscriptions = this.Configuration.GuildSubscrptions
             };
             var payload = new GatewayPayload
             {
