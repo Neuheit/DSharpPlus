@@ -11,9 +11,16 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>DSharpPlus.CommandsNext</PackageId>
-    <Description>Advanced command framework for DSharpPlus.</Description>
-    <PackageTags>discord, discord-api, bots, discord-bots, chat, dsharp, dsharpplus, csharp, dotnet, vb-net, fsharp, commands, commandsnext</PackageTags>
+    <PackageId>CessumCorePlus.CommandsNext</PackageId>
+    <Description>Advanced command framework for Cessum Core, based on DSharpPlus.</Description>
+    <PackageTags></PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.0</Version>
+    <Authors>Neuheit</Authors>
+    <Company>Cessum Development Hub</Company>
+    <Product>CessumCorePlus.CommandsNext</Product>
+    <PackageProjectUrl>https://github.com/Neuheit/DSharpPlus/tree/cessumCore</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Neuheit/DSharpPlus/tree/cessumCore</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard1.3'">
