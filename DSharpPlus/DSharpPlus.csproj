@@ -11,8 +11,16 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <Description>A C# API for Discord based off DiscordSharp, but rewritten to fit the API standards.</Description>
-    <PackageTags>discord, discord-api, bots, discord-bots, chat, dsharp, dsharpplus, csharp, dotnet, vb-net, fsharp, webhooks</PackageTags>
+    <Description>A Discord wrapper for Cessum bot needs, based off DSharpPlus.</Description>
+    <PackageTags></PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>CessumCorePlus</PackageId>
+    <Authors>Neuheit</Authors>
+    <Company>Cessum Development Hub</Company>
+    <Product>CessumCore</Product>
+    <PackageProjectUrl>https://github.com/Neuheit/DSharpPlus/tree/cessumCore</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Neuheit/DSharpPlus/tree/cessumCore</RepositoryUrl>
+    <Version>1.0.0</Version>
   </PropertyGroup>
   
   <ItemGroup>
