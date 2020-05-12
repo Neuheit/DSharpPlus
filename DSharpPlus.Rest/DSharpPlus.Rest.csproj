@@ -19,7 +19,7 @@
     <PackageProjectUrl>https://github.com/Neuheit/DSharpPlus/tree/cessumCore</PackageProjectUrl>
     <Company>Cessum Development Hub</Company>
     <Product>CessumCorePlus.Rest</Product>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <Authors>Neuheit</Authors>
     <PackageIcon>PackageLogo.jpg</PackageIcon>
   </PropertyGroup>
