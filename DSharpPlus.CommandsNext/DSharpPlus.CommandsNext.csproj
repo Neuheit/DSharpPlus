@@ -21,6 +21,7 @@
     <Product>CessumCorePlus.CommandsNext</Product>
     <PackageProjectUrl>https://github.com/Neuheit/DSharpPlus/tree/cessumCore</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Neuheit/DSharpPlus/tree/cessumCore</RepositoryUrl>
+    <PackageIcon>PackageLogo.jpg</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard1.3'">
@@ -33,6 +34,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DSharpPlus\DSharpPlus.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\..\Downloads\PackageLogo.jpg">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
