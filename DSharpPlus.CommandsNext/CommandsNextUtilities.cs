@@ -322,7 +322,7 @@ namespace DSharpPlus.CommandsNext
 
             // check if appropriate return and arguments
             parameters = method.GetParameters();
-            if (!parameters.Any() || method.ReturnType != typeof(Task))
+            if (!parameters.Any() || parameters.First().ParameterType != typeof(CommandContext) || method.ReturnType != typeof(Task))
                 return false;
 
             // qualifies
