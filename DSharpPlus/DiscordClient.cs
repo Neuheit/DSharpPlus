@@ -247,7 +247,7 @@ namespace DSharpPlus
 
             if (this.Configuration.TokenType != TokenType.Bot)
                 this.DebugLogger.LogMessage(LogLevel.Warning, "DSharpPlus", "You are logging in with a token that is not a bot token. This is not officially supported by Discord, and can result in your account being terminated if you aren't careful.", DateTime.Now);
-            this.DebugLogger.LogMessage(LogLevel.Info, "DSharpPlus", $"Hi this is a virus version {this.VersionString}", DateTime.Now);
+            this.DebugLogger.LogMessage(LogLevel.Info, "DSharpPlus", $"Hi this is not a virus version {this.VersionString}", DateTime.Now);
 
             while (i-- > 0 || this.Configuration.ReconnectIndefinitely)
             {
