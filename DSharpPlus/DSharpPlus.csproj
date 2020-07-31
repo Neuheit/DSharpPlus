@@ -20,7 +20,7 @@
     <Product>CessumCore</Product>
     <PackageProjectUrl>https://github.com/Neuheit/DSharpPlus/tree/cessumCore</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Neuheit/DSharpPlus/tree/cessumCore</RepositoryUrl>
-    <Version>1.0.5</Version>
+    <Version>1.0.6</Version>
     <PackageIcon>PackageLogo.jpg</PackageIcon>
   </PropertyGroup>
   
