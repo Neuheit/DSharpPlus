@@ -11,105 +11,7 @@ using DSharpPlus.Lavalink.Entities;
 using DSharpPlus.Lavalink.EventArgs;
 using DSharpPlus.Net;
 using DSharpPlus.Net.WebSocket;
-using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-
-namespace DSharpPlus.Lavalink
-{
-    internal delegate void NodeDisconnectedEventHandler(LavalinkNodeConnection node);
-
-    /// <summary>
-    /// Represents a connection to a Lavalink node.
-    /// </summary>
-    public sealed class LavalinkNodeConnection
-    {
-        /// <summary>
-        /// Triggered whenever Lavalink WebSocket throws an exception.
-        /// </summary>
-        public event AsyncEventHandler<SocketErrorEventArgs> LavalinkSocketErrored
-        {
-            add { this._lavalinkSocketError.Register(value); }
-            remove { this._lavalinkSocketError.Unregister(value); }
-        }
-        private AsyncEvent<SocketErrorEventArgs> _lavalinkSocketError;
-
-        /// <summary>
-        /// Triggered when this node disconnects.
-        /// </summary>
-        public event AsyncEventHandler<NodeDisconnectedEventArgs> Disconnected
-        {
-            add { this._disconnected.Register(value); }
-            remove { this._disconnected.Unregister(value); }
-        }
-        private AsyncEvent<NodeDisconnectedEventArgs> _disconnected;
-
-        /// <summary>
-        /// Triggered when this node receives a statistics update.
-        /// </summary>
-        public event AsyncEventHandler<StatisticsReceivedEventArgs> StatisticsReceived
-        {
-            add { this._statsReceived.Register(value); }
-            remove { this._statsReceived.Unregister(value); }
-        }
-        private AsyncEvent<StatisticsReceivedEventArgs> _statsReceived;
-
-        /// <summary>
-        /// Triggered whenever any of the players on this node is updated.
-        /// </summary>
-        public event AsyncEventHandler<PlayerUpdateEventArgs> PlayerUpdated
-        {
-            add { this._playerUpdated.Register(value); }
-            remove { this._playerUpdated.Unregister(value); }
-        }
-        private AsyncEvent<PlayerUpdateEventArgs> _playerUpdated;
-
-        /// <summary>
-        /// Triggered whenever playback of a track starts.
-        /// <para>This is only available for version 3.3.1 and greater.</para>
-        /// </summary>
-        public event AsyncEventHandler<TrackStartEventArgs> PlaybackStarted
-        {
-            add { this._playbackStarted.Register(value); }
-            remove { this._playbackStarted.Unregister(value); }
-        }
-        private AsyncEvent<TrackStartEventArgs> _playbackStarted;
-
-        /// <summary>
-        /// Triggered whenever playback of a track finishes.
-        /// </summary>
-        public event AsyncEventHandler<TrackFinishEventArgs> PlaybackFinished
-        {
-            add { this._playbackFinished.Register(value); }
-            remove { this._playbackFinished.Unregister(value); }
-        }
-        private AsyncEvent<TrackFinishEventArgs> _playbackFinished;
-
-        /// <summary>
-        /// Triggered whenever playback of a track gets stuck.
-        /// </summary>
-        public event AsyncEventHandler<TrackStuckEventArgs> TrackStuck
-        {
-            add { this._trackStuck.Register(value); }
-            remove { this._trackStuck.Unregister(value); }
-        }
-        private AsyncEvent<TrackStuckEventArgs> _trackStuck;
-
-        /// <summary>
-        /// Triggered whenever playback of a track encounters an error.
-        /// </summary>
-        public event AsyncEventHandler<TrackExceptionEventArgs> TrackException
-        {
-            add { this._trackException.Register(value); }
-            remove { this._trackException.Unregister(value); }
-        }
-        private AsyncEvent<TrackExceptionEventArgs> _trackException;
-
-        /// <summary>
-        /// Gets the remote endpoint of this Lavalink node connection.
-        /// </summary>
-        public ConnectionEndpoint NodeEndpoint => this.Configuration.SocketEndpoint;
-
+using Microsoft.Extension
         /// <summary>
         /// Gets whether the client is connected to Lavalink.
         /// </summary>
@@ -119,24 +21,10 @@ namespace DSharpPlus.Lavalink
         /// <summary>
         /// Gets the current resource usage statistics.
         /// </summary>
-        public LavalinkStatistics Statistics { get; }
-
-        /// <summary>
-        /// Gets a dictionary of Lavalink guild connections for this node.
-        /// </summary>
-        public IReadOnlyDictionary<ulong, LavalinkGuildConnection> ConnectedGuilds { get; }
-        internal ConcurrentDictionary<ulong, LavalinkGuildConnection> _connectedGuilds = new ConcurrentDictionary<ulong, LavalinkGuildConnection>();
-
-        /// <summary>
         /// Gets the REST client for this Lavalink connection.
         /// </summary>
         public LavalinkRestClient Rest { get; }
-
-        internal DiscordClient Discord { get; }
-        internal LavalinkConfiguration Configuration { get; }
-        internal DiscordVoiceRegion Region { get; }
-
-        private IWebSocketClient WebSocket { get; set; }
+ebSocketClient WebSocket { get; set; }
 
         private ConcurrentDictionary<ulong, TaskCompletionSource<VoiceStateUpdateEventArgs>> VoiceStateUpdates { get; }
         private ConcurrentDictionary<ulong, TaskCompletionSource<VoiceServerUpdateEventArgs>> VoiceServerUpdates { get; }
@@ -146,12 +34,7 @@ namespace DSharpPlus.Lavalink
             this.Discord = client;
             this.Configuration = new LavalinkConfiguration(config);
 
-            if (config.Region != null && this.Discord.VoiceRegions.Values.Contains(config.Region))
-                this.Region = config.Region;
-
-            this.ConnectedGuilds = new ReadOnlyConcurrentDictionary<ulong, LavalinkGuildConnection>(this._connectedGuilds);
-            this.Statistics = new LavalinkStatistics();
-
+            this.ConnectedGuil
             this._lavalinkSocketError = new AsyncEvent<SocketErrorEventArgs>(this.Discord.EventErrorHandler, "LAVALINK_SOCKET_ERROR");
             this._disconnected = new AsyncEvent<NodeDisconnectedEventArgs>(this.Discord.EventErrorHandler, "LAVALINK_NODE_DISCONNECTED");
             this._statsReceived = new AsyncEvent<StatisticsReceivedEventArgs>(this.Discord.EventErrorHandler, "LAVALINK_STATS_RECEIVED");
